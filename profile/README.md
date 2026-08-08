@@ -2,7 +2,93 @@
 
 InclusaAI is building accessible AI solutions that empower everyone. Our platform brings together cutting-edge technology with a commitment to inclusivity and accessibility.
 
-## 🏗️ Architecture Overview
+## 🏗️ System Architecture
+
+```
+                         ┌───────────────────────────┐
+                         │        WEB APPS           │
+                         │                           │
+                         │ Presenter │ Audience │Admin│
+                         └──────────────┬────────────┘
+                                        │
+                         REST / WS / WebRTC
+                                        │
+                 ┌──────────────────────┴──────────────────────┐
+                 │                                             │
+                 ▼                                             ▼
+       ┌────────────────────┐                       ┌─────────────────────┐
+       │  PLATFORM BACKEND  │                       │ REALTIME MEDIA     │
+       │                    │                       │ BACKEND             │
+       │ Gateway            │                       │                     │
+       │ Identity           │                       │ WebRTC              │
+       │ Sessions           │                       │ SFU                 │
+       │ Preferences        │                       │ Media ingestion     │
+       │ Fanout             │                       │ Signaling           │
+       │ Presenter Assist   │                       │ Streaming           │
+       └─────────┬──────────┘                       └──────────┬──────────┘
+                 │                                             │
+                 │ Kafka / gRPC                                 │
+                 └───────────────────┬─────────────────────────┘
+                                     │
+                         ┌───────────▼────────────┐
+                         │      AI SERVICES       │
+                         │                        │
+                         │ ASR                    │
+                         │ Sign Recognition       │
+                         │ Translation + TTS      │
+                         │ Avatar Generation      │
+                         │ Vision Quality         │
+                         └───────────┬────────────┘
+                                     │
+                                     ▼
+                              AI inference output
+
+
+       ┌─────────────────────┐              ┌──────────────────────┐
+       │ PLATFORM SUPPORT    │              │ INFRASTRUCTURE       │
+       │                     │              │                      │
+       │ Billing             │              │ Terraform            │
+       │ Notifications       │              │ Kubernetes            │
+       │ Background Jobs     │              │ Helm                 │
+       └─────────────────────┘              │ Monitoring            │
+                                            │ CI/CD                 │
+                                            └──────────────────────┘
+
+
+       ┌─────────────────────┐              ┌──────────────────────┐
+       │ DESIGN SYSTEM       │              │ DOCUMENTATION        │
+       │                     │              │                      │
+       │ Components          │              │ Architecture          │
+       │ Tokens              │              │ ADRs                  │
+       │ Icons               │              │ API                   │
+       │ Storybook           │              │ Security              │
+       └──────────┬──────────┘              │ Accessibility         │
+                  │                         └──────────────────────┘
+                  │
+                  ▼
+          ┌───────────────┐
+          │   WEB APPS    │
+          └───────────────┘
+
+
+                 ┌──────────────────────────────┐
+                 │      ML RESEARCH             │
+                 │                              │
+                 │ Experiments                  │
+                 │ Dataset research             │
+                 │ Model training               │
+                 │ Benchmarks                   │
+                 └──────────────┬───────────────┘
+                                │
+                         validated models
+                                │
+                                ▼
+                         ┌───────────────┐
+                         │ AI SERVICES   │
+                         └───────────────┘
+```
+
+## 📦 Repository Organization
 
 Our system is organized into specialized repositories, each serving a critical function:
 
