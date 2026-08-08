@@ -1,4 +1,4 @@
-# ![InclusaAI Logo](https://github.com/InclusaAI/.github/raw/main/profile/inclusaai-logo.png) Welcome to InclusaAI
+# ![InclusaAI Logo](https://github.com/InclusaAI/.github/raw/main/InclusaAI.png) Welcome to InclusaAI
 
 InclusaAI is building accessible AI solutions that empower everyone. Our platform brings together cutting-edge technology with a commitment to inclusivity and accessibility.
 
